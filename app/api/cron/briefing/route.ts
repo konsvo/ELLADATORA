@@ -1,4 +1,5 @@
 import { sendMorningBriefing } from "@/lib/newsletter-dispatch";
+import { syncLiveNews } from "@/lib/live-news";
 
 async function run(request: Request) {
   const authorization = request.headers.get("authorization");
@@ -6,7 +7,11 @@ async function run(request: Request) {
   const url = new URL(request.url);
   const athensTime = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Athens", hour: "2-digit", minute: "2-digit", hour12: false }).format(new Date());
   if (url.searchParams.get("force") !== "1" && athensTime !== "07:30") return Response.json({ ok: true, skipped: true, athensTime });
-  try { return Response.json({ ok: true, ...(await sendMorningBriefing()) }); }
+  try {
+    const news = await syncLiveNews(true);
+    const briefing = await sendMorningBriefing();
+    return Response.json({ ok: true, news, briefing });
+  }
   catch { return Response.json({ error: "Η αποστολή απέτυχε." }, { status: 500 }); }
 }
 
