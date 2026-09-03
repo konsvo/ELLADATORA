@@ -1,7 +1,7 @@
 type QueryValue = string | number | boolean;
 
 function config() {
-  const url = process.env.SUPABASE_URL?.replace(/\/$/, "");
+  const url = (process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL)?.replace(/\/$/, "");
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
   if (!url || !key) throw new Error("DATABASE_NOT_CONFIGURED");
   return { url, key };
