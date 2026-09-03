@@ -17,9 +17,9 @@ Production: https://www.elladatora.gr
 1. Δημιούργησε Supabase project και εκτέλεσε το `supabase/schema.sql` στον SQL Editor.
 2. Αντέγραψε το `.env.example` σε `.env.local` και συμπλήρωσε τις μεταβλητές.
 3. Εκτέλεσε `npm install` και `npm run dev`.
-4. Στο Vercel πρόσθεσε τις ίδιες μεταβλητές για Production, Preview και Development. Η επίσημη Supabase integration δημιουργεί αυτόματα το `NEXT_PUBLIC_SUPABASE_URL` και το `SUPABASE_SERVICE_ROLE_KEY`.
+4. Στο Vercel πρόσθεσε τις ίδιες μεταβλητές για Production, Preview και Development. Η επίσημη Supabase integration δημιουργεί αυτόματα το `NEXT_PUBLIC_SUPABASE_URL` και το `SUPABASE_SECRET_KEY`.
 
-Το `SUPABASE_SERVICE_ROLE_KEY`, το `AUTH_SECRET`, το `ADMIN_PASSWORD`, το `OPENAI_API_KEY`, το `RESEND_API_KEY` και το `CRON_SECRET` είναι μυστικά και δεν πρέπει να μπουν ποτέ στο GitHub.
+Το `SUPABASE_SECRET_KEY`, το `AUTH_SECRET`, το `ADMIN_PASSWORD`, το `OPENAI_API_KEY`, το `RESEND_API_KEY` και το `CRON_SECRET` είναι μυστικά και δεν πρέπει να μπουν ποτέ στο GitHub.
 
 ## Διαχειριστικό
 
