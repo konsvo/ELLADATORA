@@ -136,7 +136,7 @@ function parseFeed(xml: string, source: FeedSource): LiveNewsItem[] {
 
 async function fetchFeed(source: FeedSource) {
   const response = await fetch(source.url, {
-    headers: { "User-Agent": "ElladaTora/1.0 (+https://elladatora.gr/info/sources)", Accept: "application/rss+xml, application/atom+xml, text/xml" },
+    headers: { "User-Agent": "ElladaTora/1.0 (+https://www.elladatora.gr/info/sources)", Accept: "application/rss+xml, application/atom+xml, text/xml" },
     signal: AbortSignal.timeout(8000),
   });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
