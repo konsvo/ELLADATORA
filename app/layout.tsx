@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elladatora.gr"),
+  metadataBase: new URL("https://www.elladatora.gr"),
   title: {
     default: "Ελλάδα Τώρα — Η είδηση από όλες τις πλευρές",
     template: "%s · Ελλάδα Τώρα",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ελλάδα Τώρα — Η είδηση από όλες τις πλευρές",
     description: "Σύντομες περιλήψεις και σύγκριση κάλυψης με καθαρές παραπομπές στις αρχικές πηγές.",
-    url: "https://elladatora.gr",
+    url: "https://www.elladatora.gr",
     siteName: "Ελλάδα Τώρα",
     locale: "el_GR",
     type: "website",
