@@ -3,11 +3,12 @@
 import { type FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import {
-  ArrowRight, Bookmark, Check, ChevronRight, Clock3, CloudSun, ExternalLink, Menu,
+  ArrowRight, Bookmark, Check, ChevronRight, Clock3, ExternalLink, Menu,
   Search, ShieldCheck, Sparkles, TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { WeatherCard } from "@/components/weather-card";
 import { stories, type Story } from "@/lib/news";
 
 const categories = ["Όλα", "Πολιτική", "Οικονομία", "Κοινωνία", "Κόσμος", "Τεχνολογία", "Αθλητικά"];
@@ -224,9 +225,7 @@ export default function Home() {
             </ol>
           </section>
 
-          <section className="weather-card">
-            <div><span>ΑΘΗΝΑ · ΤΩΡΑ</span><strong>27°</strong><p>Αίθριος καιρός</p></div><CloudSun />
-          </section>
+          <WeatherCard />
           <div className="trust-note"><Sparkles /><p><b>Διαφάνεια πρώτα.</b><br />Οι περιλήψεις δημιουργούνται με AI και συνδέονται πάντα με τις αρχικές πηγές.</p></div>
         </aside>
       </div>
