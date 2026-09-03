@@ -47,3 +47,21 @@ alter table newsletter_subscribers enable row level security;
 alter table news_items enable row level security;
 alter table source_runs enable row level security;
 alter table newsletter_dispatches enable row level security;
+
+-- The application accesses these tables only from trusted server routes.
+-- New Supabase projects require explicit Data API grants.
+grant usage on schema public to service_role;
+grant select, insert, update, delete on table
+  public.newsletter_subscribers,
+  public.news_items,
+  public.source_runs,
+  public.newsletter_dispatches
+to service_role;
+grant usage, select on all sequences in schema public to service_role;
+
+revoke all on table
+  public.newsletter_subscribers,
+  public.news_items,
+  public.source_runs,
+  public.newsletter_dispatches
+from anon, authenticated;
