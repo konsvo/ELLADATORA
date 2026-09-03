@@ -183,7 +183,13 @@ export async function getLiveStories(limit = 84, includeHidden = false): Promise
 }
 
 export async function getLiveStory(slug: string): Promise<LiveNewsItem | null> {
-  const rows = await dbRequest<DbNewsRow[]>("news_items", { select: "*", slug: `eq.${slug}`, status: "eq.published", limit: 1 });
+  let normalizedSlug = slug;
+  try {
+    normalizedSlug = decodeURIComponent(slug);
+  } catch {
+    console.warn("live_story_slug_decode_failed", { slug });
+  }
+  const rows = await dbRequest<DbNewsRow[]>("news_items", { select: "*", slug: `eq.${normalizedSlug}`, status: "eq.published", limit: 1 });
   return rows[0] ? fromDbRow(rows[0]) : null;
 }
 
